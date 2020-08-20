@@ -1,11 +1,12 @@
+@import './style-utils/grid.scss';
 @import '../style-utils/colors.scss';
 
 .journal {
     display: flex;
     flex-wrap: wrap;
     background: $lightBase;
-    padding: 12px;
-    margin: 12px 0;
+    padding: $gutter-size--medium;
+    margin: $gutter-size--medium 0;
     box-sizing: border-box;
 
     &-title {
@@ -20,7 +21,7 @@
     &-pubDate {
         width: 100%;
         margin: 0;
-        padding: 12px 0;
+        padding: $gutter-size--medium 0;
     }
 
     &-name {
@@ -28,7 +29,7 @@
     }
 
     &-link {
-        padding: 12px 0;
+        padding: $gutter-size--medium 0;
     }
 
     &-author {
