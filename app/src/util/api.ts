@@ -1,7 +1,6 @@
 import { getCount, updateData, getLoading } from '../redux/actions';
 
 const sendEvent = async (value: string | undefined, dispatch: (action: any) => void) => {
-    
     dispatch(getLoading(true));
     const response = await fetch(`https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&retmax=20&retmode=json&term=${value}`);
     const json = await response.json();
