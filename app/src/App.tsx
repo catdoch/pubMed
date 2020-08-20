@@ -1,18 +1,34 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 
+import getUrlParameter from './util/get-param';
+import { sendEvent } from './util/api';
 import Input from './components/input';
 import Journal from './components/journal';
 import loading from './loading.gif';
 
 import './App.scss';
 
+interface dataProperties {
+    count?: string;
+    searchResult?: any;
+    isLoading?: boolean;
+}
+
+interface State {
+    data: dataProperties
+};
+
 const App: React.FC = () => {
+    const dispatch = useDispatch();
     const {
         data: { count, searchResult, isLoading },
-    } = useSelector((state: any) => state);
+    } = useSelector((state: State) => state);
 
-    console.log(isLoading);
+    useEffect(() => {
+        const titleParam = getUrlParameter(window.location.search, 'title');
+        sendEvent(titleParam, dispatch);
+    }, []);
 
     return (
         <>
@@ -27,7 +43,7 @@ const App: React.FC = () => {
             ) : (
                 <div>
                     {count && (
-                        <h2 className="count">{`${count?.esearchresult?.count} journals found`}</h2>
+                        <h2 className="count">{`${count} journals found`}</h2>
                     )}
                     {searchResult && searchResult !== undefined && <Journal data={searchResult} />}
                 </div>

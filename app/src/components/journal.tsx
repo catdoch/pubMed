@@ -13,7 +13,7 @@ const Journals: React.FC<Props> = (props) => {
         <>
             <div>
                 {Object.keys(results).map((key) => (
-                    <div className="journal" key={key}>
+                    <div className="journal" key={results[key].uid}>
                         <h3 className="journal-title">{results[key].title}</h3>
                         {results[key].fulljournalname && (
                             <p className="journal-name">{`in ${results[key].fulljournalname}`}</p>
@@ -22,7 +22,7 @@ const Journals: React.FC<Props> = (props) => {
                         <div className="journal-author">
                             By:{' '}
                             {results[key].authors.map((el: any) => (
-                                <p>{el.name}</p>
+                                <p key={el.name}>{el.name}</p>
                             ))}
                         </div>
                         <a
