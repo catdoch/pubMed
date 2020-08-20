@@ -1,0 +1,128 @@
+{
+    "settings": {
+        "react": {
+            "version": "16.5.2"
+        },
+        "import/resolver": {
+            "node": {
+                "extensions": [".js", ".jsx", ".tsx", ".ts"]
+            }
+        }
+    },
+    "extends": [
+        "airbnb",
+        "plugin:jest/recommended",
+        "plugin:import/errors",
+        "plugin:@typescript-eslint/recommended",
+        "prettier",
+        "prettier/react",
+        "plugin:testing-library/recommended",
+        "plugin:testing-library/react"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "allowImportExportEverywhere": false
+    },
+    "env": {
+        "browser": true,
+        "node": true,
+        "jest": true
+    },
+    "plugins": ["filenames", "import", "@typescript-eslint", "testing-library"],
+    "rules": {
+        "flatTernaryExpressions": true,
+        "react/jsx-indent": ["error", 4],
+        "react/jsx-indent-props": ["error", 4],
+        "react/forbid-prop-types": "off",
+        "import/prefer-default-export": "off",
+        "react/jsx-one-expression-per-line": "off",
+        "react/no-array-index-key": "warning",
+
+        "jest/consistent-test-it": ["error", { "fn": "it" }],
+        "jest/prefer-to-have-length": "error",
+
+        "filenames/match-exported": ["error", "kebab"],
+        "filenames/match-regex": [
+            "error",
+            "^[a-z0-9-]+(.spec|.config|.stories|.style|.model|.d)?$",
+            true
+        ],
+
+        "global-require": "off",
+        "@typescript-eslint/no-var-requires": "off",
+        "@typescript-eslint/camelcase": "off",
+        "@typescript-eslint/interface-name-prefix": "off",
+        "@typescript-eslint/explicit-function-return-type": "off",
+        "react/no-unescaped-entities": "off",
+        "no-underscore-dangle": [
+            "error",
+            {
+                "allow": [
+                    "__cmp",
+                    "__cmpCall",
+                    "__cmpLocator",
+                    "__iasPET",
+                    "__precacheManifest",
+                    "__REDUX_DEVTOOLS_EXTENSION_COMPOSE__",
+                    "_googletag"
+                ]
+            }
+        ],
+        "no-restricted-imports": [
+            "error",
+            {
+                "paths": [
+                    {
+                        "name": "lodash",
+                        "message": "Please use import xxx from 'lodash/xxx' syntax instead."
+                    }
+                ]
+            }
+        ],
+        "eol-last": ["error", "always"],
+        "no-unused-vars": "off",
+        "@typescript-eslint/no-unused-vars": [
+            "error",
+            {
+                "varsIgnorePattern": "^_",
+                "argsIgnorePattern": "^_"
+            }
+        ],
+        "@typescript-eslint/no-explicit-any": "off",
+        "@typescript-eslint/explicit-member-accessibility": "off",
+        "@typescript-eslint/no-object-literal-type-assertion": "off",
+        "@typescript-eslint/no-empty-function": "off",
+        "@typescript-eslint/no-angle-bracket-type-assertion": "off",
+        "@typescript-eslint/no-triple-slash-reference": "off",
+        "@typescript-eslint/prefer-interface": "off",
+        "react/no-multi-comp": 0,
+        "import/extensions": 0
+    },
+    "overrides": [
+        {
+            "files": [
+                "**/*{-,.}{test,spec,stories,config,setup}.{js,jsx,ts,tsx}",
+                "**/test/**/*.{js,jsx}",
+                "**/docs/**/*.{js,jsx}",
+                "tools/**/*.ts"
+            ],
+            "rules": {
+                "import/no-extraneous-dependencies": "off"
+            }
+        },
+        {
+            "files": ["**/*.tsx"],
+            "rules": {
+                "react/prop-types": "off",
+                "react/destructuring-assignment": "off",
+                "react/jsx-filename-extension": "off"
+            }
+        },
+        {
+            "files": ["config/webpack/*.config.ts"],
+            "rules": {
+                "filenames/match-regex": "off"
+            }
+        }
+    ]
+}

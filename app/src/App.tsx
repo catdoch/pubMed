@@ -1,26 +1,26 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useSelector } from 'react-redux';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import Input from './components/input';
+
+import './App.scss';
+
+const App: React.FC = () => {
+    const { data: { count } } = useSelector((state: any) => state);
+
+    return (
+        <>
+            <header>
+                <h1>Pub Med Journal Search</h1>
+            </header>
+            <div className="form-container">
+                <Input id="input" placeholder="search here for journals..." />
+            </div>
+            <div>
+                <h2>{`Count is ${count}`}</h2>
+            </div>
+        </>
+    );
+};
 
 export default App;
