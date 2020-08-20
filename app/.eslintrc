@@ -10,7 +10,6 @@
         }
     },
     "extends": [
-        "airbnb",
         "plugin:jest/recommended",
         "plugin:import/errors",
         "plugin:@typescript-eslint/recommended",
