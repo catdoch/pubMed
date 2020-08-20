@@ -1,6 +1,6 @@
 import { UPDATE_COUNT, UPDATE_DATA, LOADING } from './actions';
 
-export default (state = {}, action: any) => {
+export default (state = {isLoading: false}, action: any) => {
     switch (action.type) {
         case UPDATE_COUNT:
             return {

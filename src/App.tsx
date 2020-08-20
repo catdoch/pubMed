@@ -27,8 +27,8 @@ const App: React.FC = () => {
 
     useEffect(() => {
         const titleParam = getUrlParameter(window.location.search, 'title');
-        sendEvent(titleParam, dispatch);
-    }, []);
+        titleParam && sendEvent(titleParam, dispatch);
+    }, [dispatch]);
 
     return (
         <>
@@ -38,9 +38,10 @@ const App: React.FC = () => {
             <div className="form-container">
                 <Input id="input" placeholder="search here for journals..." />
             </div>
-            {isLoading ? (
+            {isLoading && (
                 <div className="loading"><img src={loading} alt="loading" /></div>
-            ) : (
+            )}
+            {(!isLoading && searchResult && searchResult !== undefined) && (
                 <div>
                     {count && (
                         <h2 className="count">{`${count} journals found`}</h2>

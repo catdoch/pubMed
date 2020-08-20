@@ -2,11 +2,13 @@
 @import './style-utils/colors.scss';
 
 #root {
-	margin: 0 $gutter-size--medium;
+	padding: 0 $gutter-size--medium;
 }
 
 h1 {
 	text-align: center;
+	margin: 0;
+	padding: $gutter-size--xxlarge 0;
 
 	@include mq($until: s) {
 		font-size: 28px;
