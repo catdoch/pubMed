@@ -6,7 +6,7 @@ interface Props {
     data?: {};
 }
 
-const Journals: React.FC<Props> = (props) => {
+const Journal: React.FC<Props> = (props) => {
     const results: any = props.data;
     delete results['uids'];
     return (
@@ -39,4 +39,4 @@ const Journals: React.FC<Props> = (props) => {
     );
 };
 
-export default Journals;
+export default Journal;
