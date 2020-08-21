@@ -8,22 +8,16 @@ import SearchButton from './search-button';
  */
 interface OwnProps {
     id: string;
-    inline?: boolean;
     placeholder?: string;
+    className?: string;
     inputRef?: (...args: any[]) => void;
     name?: string;
     onInput?: (...args: any[]) => void;
-    type?: string;
-    /**
-     * Can be passed down from `Field` component.
-     */
-    errorMessages?: any;
 }
+
 const defaultProps = {
-    inline: false,
     inputRef: () => {},
     onInput: () => {},
-    type: 'text',
 };
 
 type Props = OwnProps & typeof defaultProps;
@@ -67,22 +61,21 @@ class Input extends Component<Props, State> {
     render() {
         const {
             id,
-            inline,
             name = id,
-            type,
             inputRef: _,
             placeholder,
-            errorMessages: __,
+            className,
             ...props
         } = this.props;
 
         const { value } = this.state;
 
         return (
-            <div className="form-container-input">
+            <div className={`form-container-input ${className}`}>
+                <label style={{ display: 'none' }} htmlFor={id}>Input to search journals</label>
                 <input
                     {...props}
-                    type="input"
+                    type="text"
                     id={id}
                     value={value}
                     placeholder={placeholder}

@@ -1,6 +1,13 @@
 @import './style-utils/grid.scss';
 @import './style-utils/colors.scss';
 
+@keyframes glowing {
+	0% { box-shadow: 0 0 -10px $lightBase; }
+	40% { box-shadow: 0 0 20px $lightBase; }
+	60% { box-shadow: 0 0 20px $lightBase; }
+	100% { box-shadow: 0 0 -10px $lightBase; }
+  }
+
 #root {
 	padding: 0 $gutter-size--medium;
 }
@@ -43,6 +50,10 @@ h1 {
 		border: 1px solid gray;
 		width: 75%;
 		height: 44px;
+
+		&.glowing {
+			animation: glowing 5000ms infinite;
+		}
 
 		@include mq($until: s) {
 			width: 100%;
