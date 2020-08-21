@@ -1,0 +1,58 @@
+target
+.settings
+.project
+.idea
+.vscode
+*.iml
+atlassian-ide-plugin.xml
+tools/dependency-reduced-pom.xml
+*.iws
+*.ipr
+*.bak
+work
+*~
+overlays*
+*.info
+classes/
+.DS_Store
+*/node_modules/
+*/.grunt/
+
+# Static assets
+*.scssc
+.sass-cache/
+mobile-web-static-assets/src/documentation/built/
+mobile-web-static-assets/src/documentation/_data
+mobile-web-static-assets/src/documentation/_site
+assets/src/main/resources/templates/*/freemarker/static/
+assets/bin/
+mobile-web-static-assets/bin/
+seller-public-static-assets/bin/
+
+**/.classpath
+
+# Freemarker preprocessor mocking tool
+fmppmock/
+fmpp.log
+
+# Intellij WAR exploded output folder
+out
+
+# Chrome temporary log file
+libpeerconnection.log
+
+# Webengage file
+.swp
+contiperf-report
+
+# Test generated data
+/mobile-web/data/
+/mobile-web-acceptance-tests/data/
+data/
+phantomjsdriver.log
+*.css.map
+freemarker_implicit.ftl
+buyer.sh
+seller.sh
+seller_test.sh
+*.gz
